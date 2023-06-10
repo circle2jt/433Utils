@@ -23,6 +23,11 @@ int main(int argc, char *argv[]) {
      // This pin is not the first pin on the RPi GPIO header!
      // Consult https://projects.drogon.net/raspberry-pi/wiringpi/pins/
      // for more information.
+  
+     if (argv[1] == NULL) {
+       printf("PIN is required");
+       return 1;
+     }
      int PIN = atoi(argv[1]);
      
      if(wiringPiSetup() == -1) {
