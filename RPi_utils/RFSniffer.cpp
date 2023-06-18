@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
           printf("Unknown encoding\n");
         } else {    
    
-          printf("%lu", mySwitch.getReceivedValue() );
+          printf("%lu\n", mySwitch.getReceivedValue() );
         }
     
         fflush(stdout);
