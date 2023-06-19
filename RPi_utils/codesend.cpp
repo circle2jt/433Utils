@@ -20,12 +20,16 @@ or your remote control)
      
 
 int main(int argc, char *argv[]) {
-    
-    // This pin is not the first pin on the RPi GPIO header!
-    // Consult https://projects.drogon.net/raspberry-pi/wiringpi/pins/
-    // for more information.
-    int PIN = 0;
-    
+
+    if (argv[1] == NULL) {
+       printf("PIN is required");
+       return 1;
+    }
+    if (argv[2] == NULL) {
+       printf("Code is required");
+       return 1;
+    }
+    int PIN = atoi(argv[1]);
     // Parse the first parameter to this command as an integer
     int protocol = 0; // A value of 0 will use rc-switch's default value
     int pulseLength = 0;
@@ -43,8 +47,8 @@ int main(int argc, char *argv[]) {
 
     // Change protocol and pulse length accroding to parameters
     char *eptr;
-    unsigned long code = strtoul(argv[1], &eptr, 10);
-    PIN = atoi(argv[2]);
+    PIN = atoi(argv[1]);
+    unsigned long code = strtoul(argv[2], &eptr, 10);
     if (argc >= 4) protocol = atoi(argv[3]);
     if (argc >= 5) pulseLength = atoi(argv[4]);
     if (argc >= 6) bitLength = atoi(argv[5]);
