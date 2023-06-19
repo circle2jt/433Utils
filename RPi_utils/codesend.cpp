@@ -44,9 +44,10 @@ int main(int argc, char *argv[]) {
     // Change protocol and pulse length accroding to parameters
     char *eptr;
     unsigned long code = strtoul(argv[1], &eptr, 10);
-    if (argc >= 3) protocol = atoi(argv[2]);
-    if (argc >= 4) pulseLength = atoi(argv[3]);
-    if (argc >= 5) bitLength = atoi(argv[4]);
+    PIN = atoi(argv[2]);
+    if (argc >= 4) protocol = atoi(argv[3]);
+    if (argc >= 5) pulseLength = atoi(argv[4]);
+    if (argc >= 6) bitLength = atoi(argv[5]);
     
     if (wiringPiSetup () == -1) return 1;
     printf("sending code[%lu]\n", code);
