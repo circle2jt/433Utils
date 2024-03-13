@@ -42,25 +42,18 @@ int main(int argc, char *argv[]) {
      if (pulseLength != 0) mySwitch.setPulseLength(pulseLength);
      mySwitch.enableReceive(PIN);  // Receiver on interrupt 0 => that is pin #2
      
-    
      while(1) {
-  
       if (mySwitch.available()) {
-    
         unsigned long value = mySwitch.getReceivedValue();
-    
+        mySwitch.resetAvailable();
         if (value == 0) {
           printf("Unknown encoding\n");
         } else {    
-   
-          printf("%lu\n", mySwitch.getReceivedValue() );
+          printf("%lu\n", value );
         }
-    
         fflush(stdout);
-        mySwitch.resetAvailable();
       }
-      usleep(100); 
-  
+      usleep(100000); // Sleep 100ms
   }
 
   exit(0);
