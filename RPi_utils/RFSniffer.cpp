@@ -35,8 +35,12 @@ int main(int argc, char *argv[]) {
        return 0;
      }
 
+     int sleepTime = 100;
+     if (argv[2] != NULL) sleepTime = atoi(argv[2]);
+     sleepTime = sleepTime * 1000
+
      int pulseLength = 0;
-     if (argv[2] != NULL) pulseLength = atoi(argv[2]);
+     if (argv[3] != NULL) pulseLength = atoi(argv[3]);
 
      mySwitch = RCSwitch();
      if (pulseLength != 0) mySwitch.setPulseLength(pulseLength);
@@ -53,11 +57,8 @@ int main(int argc, char *argv[]) {
         }
         fflush(stdout);
       }
-      usleep(100000); // Sleep 100ms
+      usleep(sleepTime); // Sleep 100ms
   }
-
   exit(0);
-
-
 }
 
