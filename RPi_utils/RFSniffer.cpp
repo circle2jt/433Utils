@@ -49,13 +49,13 @@ int main(int argc, char *argv[]) {
      while(1) {
       if (mySwitch.available()) {
         unsigned long value = mySwitch.getReceivedValue();
-        mySwitch.resetAvailable();
         if (value == 0) {
           printf("Unknown encoding\n");
         } else {    
           printf("%lu\n", value );
         }
         fflush(stdout);
+        mySwitch.resetAvailable();
       }
       usleep(sleepTime); // Sleep 100ms
   }
