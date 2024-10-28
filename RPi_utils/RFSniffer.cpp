@@ -48,10 +48,10 @@ int main(int argc, char *argv[]) {
      while(1) {
       if (mySwitch.available()) {
         unsigned long value = mySwitch.getReceivedValue();
-        if (value == 0) {
-          printf("Unknown encoding\n");
-        } else {    
-          printf("%lu\n", value );
+        if (value != 0) {
+          // printf("Unknown encoding\n");
+          // } else {    
+          printf("%lu ", value );
         }
         fflush(stdout);
         mySwitch.resetAvailable();
