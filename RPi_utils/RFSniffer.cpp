@@ -37,7 +37,6 @@ int main(int argc, char *argv[]) {
 
      int sleepTime = 100;
      if (argv[2] != NULL) sleepTime = atoi(argv[2]);
-     sleepTime = sleepTime * 1000;
 
      int pulseLength = 0;
      if (argv[3] != NULL) pulseLength = atoi(argv[3]);
@@ -56,8 +55,9 @@ int main(int argc, char *argv[]) {
         }
         fflush(stdout);
         mySwitch.resetAvailable();
+      } else {
+        usleep(sleepTime); // Sleep 100ms
       }
-      usleep(sleepTime); // Sleep 100ms
   }
   exit(0);
 }
