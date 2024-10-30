@@ -41,6 +41,8 @@ int main(int argc, char *argv[]) {
      int pulseLength = 0;
      if (argv[3] != NULL) pulseLength = atoi(argv[3]);
 
+     setbuf(stdout, NULL)
+
      mySwitch = RCSwitch();
      if (pulseLength != 0) mySwitch.setPulseLength(pulseLength);
      mySwitch.enableReceive(PIN);  // Receiver on interrupt 0 => that is pin #2
