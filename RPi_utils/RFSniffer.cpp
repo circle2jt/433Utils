@@ -51,14 +51,14 @@ int main(int argc, char *argv[]) {
         if (value != 0) {
           // printf("Unknown encoding\n");
           // } else {    
-          printf("%lu ", value );
+          printf("%lu\n", value);
         }
-        fflush(stdout);
+        // fflush(stdout);
         mySwitch.resetAvailable();
       } else {
         usleep(sleepTime); // Sleep 100ms
       }
-  }
-  exit(0);
+    }
+    exit(0);
 }
 
